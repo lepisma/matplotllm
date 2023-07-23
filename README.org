@@ -1,0 +1,6 @@
+#+TITLE: MatplotLLM
+
+MatplotLLM is a conversational layer over matplotlib to visualize data. The main
+purpose is to accelerate building a certain /your way/ of visualizing data points
+without meddling with innards of a tool like matplotlib. As of now, this is in
+interactive system to be used from Emacs.
