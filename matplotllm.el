@@ -31,6 +31,82 @@
 ;;; Code:
 
 (require 'shell-maker)
+(require 'request)
+
+(defcustom matplotllm-image-filename "matplotllm.png"
+  "Filename where the plotting code should put the image in.")
+
+(defcustom matplotllm-openai-key nil
+  "OpenAI key for calling LLMs.")
+
+(defcustom matplotllm-prompt-system
+  "You have to produce complete code for plotting a graph using
+matplotlib which should save the image in a file matplotllm.png
+when run. Don't call plt.show() in the end. Also you don't have
+to explain anything, just write the code which can be executed.
+No extra comments of any sort. Provide output in markdown.
+
+You will be given the description of the data source that you
+have to use. Note that if the description talks about a filename
+just hard code reading from file in the code and don't read
+anything from the command line."
+  "System prompt message for use in OpenAI requests.")
+
+(defcustom matplotllm-prompt-template
+  "Data Description: %s
+
+Ask: %s"
+  "Prompt template to be used while asking for code.")
+
+(defvar matplotllm-file-name "matplotllm.py"
+  "Name of the file to dump the code in.")
+
+(defun matplotllm-parse-code (llm-response)
+  "Return Python code from LLM response."
+  (with-temp-buffer
+    (insert llm-response)
+    (goto-char (point-min))
+    (let (start end)
+      (re-search-forward "^```python$")
+      (setq start (match-end 0))
+      (re-search-forward "^```$")
+      (setq end (match-beginning 0))
+      (buffer-substring-no-properties start end))))
+
+(defun matplotllm-run (code)
+  "Run given python `code' snippet. It's assumed that this snippet
+is complete code to plot the desired graphics."
+  (with-temp-buffer
+    (insert code)
+    (write-file matplotllm-file-name))
+  (call-process "python" nil "*matplotllm*" nil matplotllm-file-name))
+
+(defun matplotllm-show ()
+  "Display the image file generated after running the plotting
+code."
+  (if (file-exists-p matplotllm-image-filename)
+      (find-file matplotllm-image-filename)
+    (error "File %s not generated." matplotllm-image-filename)))
+
+(defun matplotllm-request (data-description ask callback)
+  "Send request to an LLM with requirements and get output back.
+The output is raw LLM generation and will need parsing to strip
+non-code portions as needed."
+  (request "https://api.openai.com/v1/chat/completions"
+    :type "POST"
+    :data (json-encode `(("model" . "gpt-4")
+                         ("messages" . [(("role" . "system") ("content" . ,matplotllm-prompt-system))
+                                        (("role" . "user") ("content" . ,(format matplotllm-prompt-template data-description ask)))])))
+    :headers `(("Content-Type" . "application/json")
+               ("Authorization" . ,(format "Bearer %s" matplotllm-openai-key)))
+    :parser 'json-read
+    :error (cl-function
+            (lambda (&rest args &key error-thrown &allow-other-keys)
+              (message "Got error: %S" error-thrown)))
+    :success (cl-function
+              (lambda (&key data &allow-other-keys)
+                (let ((llm-response (alist-get 'content (alist-get 'message (aref (alist-get 'choices data) 0)))))
+                  (funcall callback llm-response))))))
 
 (defvar matplotllm-shell--config
   (make-shell-maker-config

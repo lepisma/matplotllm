@@ -4,3 +4,27 @@ MatplotLLM is a conversational layer over matplotlib to visualize data. The main
 purpose is to accelerate building a certain /your way/ of visualizing data points
 without meddling with innards of a tool like matplotlib. As of now, this is in
 interactive system to be used from Emacs.
+
+* Working
+
+** Ports
+There are two ports here. One for data ingestion. Second for emitting images to
+display. As a user, you just have to worry about the first part. Your /worry/ here
+takes form of a natural language description for how to interpret the data and
+it stays a persistent part of the LLM prompt. You could change this in case of
+issues during the normal prompting procedure. We will see which design works
+well.
+
+** Interaction
+Once started, you are dropped in a shell. Here you have can write instructions
+on plotting that will be tracked in history. Every instruction will yield a
+python code snippet which will be executed to produce an image file which will
+be displayed on the side buffer.
+
+Currently you can use functions like the following:
+#+begin_src emacs-lisp
+(matplotllm-request "NA" "generate a random scatter plot in edward tufte style with 200 random points"
+                    (lambda (response)
+                      (matplotllm-run (matplotllm-parse-code response))
+                      (matplotllm-show)))
+#+end_src
