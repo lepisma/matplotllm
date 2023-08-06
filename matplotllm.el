@@ -4,9 +4,9 @@
 
 ;; Author: Abhinav Tushar <abhinav@lepisma.xyz>
 ;; Version: 0.0.1
-;; Package-Requires: ((emacs "27"))
+;; Package-Requires: ((emacs "28") (org "9.6.6") (request "0.3.2") (s "1.13.0"))
 ;; Keywords: 
-;; URL: https://github.com/lepisma/matplotllm.el
+;; URL: https://github.com/lepisma/matplotllm
 
 ;;; Commentary:
 

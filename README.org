@@ -3,7 +3,8 @@
 MatplotLLM is a natural language layer over matplotlib to visualize data. The
 main purpose is to accelerate building a certain /your way/ of visualizing data
 points without meddling with innards of a tool like matplotlib. As of now, this
-is a system to be used from within Emacs.
+is a system to be used from within Emacs/Org system. The motivation is coming
+from something I wrote in a blog on AI co-programming [[https://lepisma.xyz/2023/06/29/mu4e-snooze/index.html][here]].
 
 * Usage
 There are two descriptions that you need to provide, both in natural language.
@@ -14,7 +15,12 @@ will be better than having a static text description.
 You can use these in an org-babel source block with language name of ~matplotllm~
 as shown in below example. There is an org mode divider ~-----~ used to separate
 data description and plot description. In current design this distinction might
-look useless, but it might be helpful later on:
+look useless, but it might be helpful later on.
+
+You will have to set the value of ~matplotllm-openai-key~ to use this first.
+
+The example below is trying to reproduce, I haven't done justice to it yet, the
+plot in my blog post on [[https://lepisma.xyz/2023/07/22/learning-colemak-dh/index.html][Learning Colemak-DH]].
 
 #+NAME: test-plot
 #+begin_src matplotllm :results file :exports both
@@ -31,8 +37,11 @@ Each line is for a day has WPM and accuracy entries from multiple tries in a day
 
 -----
 
-Plot a minimal scatter plot that shows WPM plotted against dates. Use accuracy values as color of the scatter plot, darker is more accurate. Can you clear up the axis and only show faint grid lines? Also show dates where ticks have months written in them.
+Plot a minimal scatter plot that shows WPM plotted against dates. Use accuracy values as color of the scatter plot, darker (blue purple) is more accurate. Also clear up the axis and only show faint grid lines, and show dates where ticks have months written in them without crowding them too much. Annotate the first and last point with actual WPM value.
 #+end_src
 
 #+RESULTS: test-plot
 [[file:matplotllm.png]]
+
+Based on the output at every call, It definitely feels like I would need a
+conversational input method for plot description, not so much for data.
