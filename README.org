@@ -1,30 +1,38 @@
 #+TITLE: MatplotLLM
 
-MatplotLLM is a conversational layer over matplotlib to visualize data. The main
-purpose is to accelerate building a certain /your way/ of visualizing data points
-without meddling with innards of a tool like matplotlib. As of now, this is in
-interactive system to be used from Emacs.
+MatplotLLM is a natural language layer over matplotlib to visualize data. The
+main purpose is to accelerate building a certain /your way/ of visualizing data
+points without meddling with innards of a tool like matplotlib. As of now, this
+is a system to be used from within Emacs.
 
-* Working
+* Usage
+There are two descriptions that you need to provide, both in natural language.
+One that describes the data source. Second that describes how to plot. The
+second is where I believe a conversational interaction, not present right now,
+will be better than having a static text description.
 
-** Ports
-There are two ports here. One for data ingestion. Second for emitting images to
-display. As a user, you just have to worry about the first part. Your /worry/ here
-takes form of a natural language description for how to interpret the data and
-it stays a persistent part of the LLM prompt. You could change this in case of
-issues during the normal prompting procedure. We will see which design works
-well.
+You can use these in an org-babel source block with language name of ~matplotllm~
+as shown in below example. There is an org mode divider ~-----~ used to separate
+data description and plot description. In current design this distinction might
+look useless, but it might be helpful later on:
 
-** Interaction
-Once started, you are dropped in a shell. Here you have can write instructions
-on plotting that will be tracked in history. Every instruction will yield a
-python code snippet which will be executed to produce an image file which will
-be displayed on the side buffer.
+#+NAME: test-plot
+#+begin_src matplotllm :results file :exports both
 
-Currently you can use functions like the following:
-#+begin_src emacs-lisp
-(matplotllm-request "NA" "generate a random scatter plot in edward tufte style with 200 random points"
-                    (lambda (response)
-                      (matplotllm-run (matplotllm-parse-code response))
-                      (matplotllm-show)))
+The data file to read is named `log.txt`. Here is how it looks like:
+
++ [2023-07-20 Thu] 97 WPM, acc 98%
+Stopped daily tracking
++ [2023-05-16 Tue] 66 WPM, acc 91% | 66 WPM, acc 87%
++ [2023-05-15 Mon] 68 WPM, acc 89% | 65 WPM, acc 90% | 71 WPM, acc 93% | Colemak-DH as default.
++ [2023-05-14 Sun] 65 WPM, acc 92% | 62 WPM, acc 87% | 65 WPM, acc 91% | 70 WPM, acc 90%
+
+Each line is for a day has WPM and accuracy entries from multiple tries in a day. Some line may have ill-structured text which you can ignore.
+
+-----
+
+Plot a minimal scatter plot that shows WPM plotted against dates. Use accuracy values as color of the scatter plot, darker is more accurate. Can you clear up the axis and only show faint grid lines? Also show dates where ticks have months written in them.
 #+end_src
+
+#+RESULTS: test-plot
+[[file:matplotllm.png]]

@@ -30,8 +30,9 @@
 
 ;;; Code:
 
-(require 'shell-maker)
+(require 'ob)
 (require 'request)
+(require 's)
 
 (defcustom matplotllm-image-filename "matplotllm.png"
   "Filename where the plotting code should put the image in.")
@@ -39,7 +40,7 @@
 (defcustom matplotllm-openai-key nil
   "OpenAI key for calling LLMs.")
 
-(defcustom matplotllm-prompt-system
+(defcustom matplotllm-system-message
   "You have to produce complete code for plotting a graph using
 matplotlib which should save the image in a file matplotllm.png
 when run. Don't call plt.show() in the end. Also you don't have
@@ -52,7 +53,7 @@ just hard code reading from file in the code and don't read
 anything from the command line."
   "System prompt message for use in OpenAI requests.")
 
-(defcustom matplotllm-prompt-template
+(defcustom matplotllm-user-message-template
   "Data Description: %s
 
 Ask: %s"
@@ -81,22 +82,14 @@ is complete code to plot the desired graphics."
     (write-file matplotllm-file-name))
   (call-process "python" nil "*matplotllm*" nil matplotllm-file-name))
 
-(defun matplotllm-show ()
-  "Display the image file generated after running the plotting
-code."
-  (if (file-exists-p matplotllm-image-filename)
-      (find-file matplotllm-image-filename)
-    (error "File %s not generated." matplotllm-image-filename)))
-
-(defun matplotllm-request (data-description ask callback)
-  "Send request to an LLM with requirements and get output back.
-The output is raw LLM generation and will need parsing to strip
-non-code portions as needed."
+(defun matplotllm-openai-request (system-message user-message callback)
+  "Simple request function for OpenAI LLMs that uses given messages
+and runs `callback' on the first LLM response."
   (request "https://api.openai.com/v1/chat/completions"
     :type "POST"
     :data (json-encode `(("model" . "gpt-4")
-                         ("messages" . [(("role" . "system") ("content" . ,matplotllm-prompt-system))
-                                        (("role" . "user") ("content" . ,(format matplotllm-prompt-template data-description ask)))])))
+                         ("messages" . [(("role" . "system") ("content" . ,system-message))
+                                        (("role" . "user") ("content" . ,user-message))])))
     :headers `(("Content-Type" . "application/json")
                ("Authorization" . ,(format "Bearer %s" matplotllm-openai-key)))
     :parser 'json-read
@@ -108,17 +101,28 @@ non-code portions as needed."
                 (let ((llm-response (alist-get 'content (alist-get 'message (aref (alist-get 'choices data) 0)))))
                   (funcall callback llm-response))))))
 
-(defvar matplotllm-shell--config
-  (make-shell-maker-config
-   :name "MatplotLLM"
-   :execute-command
-   (lambda (command _history callback error-callback)
-     (funcall callback (format "Hello \"%s\"" command) nil))))
+(defun matplotllm-request (data-description ask callback)
+  "Send request to an LLM with requirements and get output back.
+The output is raw LLM generation and will need parsing to strip
+non-code portions as needed."
+  (matplotllm-openai-request matplotllm-system-message (format matplotllm-user-message-template data-description ask) callback))
 
-(defun matplotllm-shell ()
-  "Start MatplotLLM."
-  (interactive)
-  (shell-maker-start matplotllm-shell--config))
+(defun matplotllm-parse-ob-body (body)
+  "Return data and plot description in a cons pair from ob `body'
+text. These two are separated by an org line break `-----`."
+  (let ((sections (s-split "-----" body)))
+    (unless (= (length sections) 2)
+      (error "Ill-formed matplotllm description, please separate data and plot description with a `-----' separator."))
+    (cons (s-trim (car sections)) (s-trim (cadr sections)))))
+
+(defun org-babel-execute:matplotllm (body params)
+  "Execute matplotllm description and generate plots."
+  (let ((desc (matplotllm-parse-ob-body body)))
+    (matplotllm-request (car desc) (cdr desc)
+                        (lambda (response)
+                          (matplotllm-run (matplotllm-parse-code response))
+                          (org-redisplay-inline-images))))
+  matplotllm-image-filename)
 
 (provide 'matplotllm)
 

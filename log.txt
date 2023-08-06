@@ -1,0 +1,90 @@
++ [2023-07-20 Thu] 97 WPM, acc 98%
+Stopped daily tracking
++ [2023-05-16 Tue] 66 WPM, acc 91% | 66 WPM, acc 87%
++ [2023-05-15 Mon] 68 WPM, acc 89% | 65 WPM, acc 90% | 71 WPM, acc 93% | Colemak-DH as default.
++ [2023-05-14 Sun] 65 WPM, acc 92% | 62 WPM, acc 87% | 65 WPM, acc 91% | 70 WPM, acc 90%
++ [2023-05-13 Sat] 74 WPM, acc 92% | 64 WPM, acc 89% | 63 WPM, acc 88%
++ [2023-05-12 Fri] 66 WPM, acc 87% | 70 WPM, acc 90%
++ [2023-05-11 Thu] 59 WPM, acc 88% | 65 WPM, acc 88% | 66 WPM, acc 92% | 72 WPM, acc 94%
++ [2023-05-10 Wed] 67 WPM, acc 86% | 65 WPM, acc 91% | 72 WPM, acc 92%
++ [2023-05-09 Tue] 63 WPM, acc 88% | 70 WPM, acc 93%
++ [2023-05-08 Mon] 65 WPM, acc 90% | 65 WPM, acc 92%
++ [2023-05-07 Sun] 68 WPM, acc 94% | 71 WPM, acc 90% | 69 WPM, acc 91%
++ [2023-05-04 Thu] 61 WPM, acc 90% | 64 WPM, acc 90% | 71 WPM, acc 93%
++ [2023-05-03 Wed] 65 WPM, acc 90% | 66 WPM, acc 90%
++ [2023-05-02 Tue] 62 WPM, acc 88% | 63 WPM, acc 89%
++ [2023-04-30 Sun] 61 WPM, acc 85% | 70 WPM, acc 94% | 71 WPM, acc 91%
++ [2023-04-29 Sat] 64 WPM, acc 88% | 62 WPM, acc 90% | 65 WPM, acc 90% | 77 WPM, acc 94%
++ [2023-04-28 Fri] 62 WPM, acc 91% | 64 WPM, acc 87%
++ [2023-04-23 Sun] 59 WPM, acc 93% | 60 WPM, acc 88% | 66 WPM, acc 90%
++ [2023-04-21 Fri] 60 WPM, acc 92% | 66 WPM, acc 91% | 63 WPM, acc 89%
++ [2023-04-20 Thu] 56 WPM, acc 87% | 60 WPM, acc 87% | 73 WPM, acc 90%
++ [2023-04-19 Wed] 68 WPM, acc 88% | 62 WPM, acc 90% | 68 WPM, acc 94%
++ [2023-04-18 Tue] 65 WPM, acc 92% | 58 WPM, acc 92% | 65 WPM, acc 93% | 69 WPM, acc 90%
++ [2023-04-17 Mon] 59 WPM, acc 91% | 63 WPM, acc 88%
++ [2023-04-16 Sun] 57 WPM, acc 89% | 70 WPM, acc 94% | 63 WPM, acc 91% | 65 WPM, acc 90%
++ [2023-04-15 Sat] 52 WPM, acc 87% | 58 WPM, acc 90% | 63 WPM, acc 91% | 67 WPM, acc 88% | 73 WPM, acc 94% | 71 WPM, acc 92%
++ [2023-04-14 Fri] 57 WPM, acc 87% | 59 WPM, acc 88%
++ [2023-04-13 Thu] 53 WPM, acc 85% | 58 WPM, acc 89%
++ [2023-03-30 Thu] 72 WPM, acc 96% | 65 WPM, acc 90%
++ [2023-03-29 Wed] 74 WPM, acc 93% | 70 WPM, acc 92% | 69 WPM, acc 93%
++ [2023-03-28 Tue] 65 WPM, acc 92% | 68 WPM, acc 94%
++ [2023-03-27 Mon] 67 WPM, acc 93% | 63 WPM, acc 91% | 65 WPM, acc 88%
++ [2023-03-26 Sun] 65 WPM, acc 90% | 60 WPM, acc 89% | 67 WPM, acc 90% | 68 WPM, acc 91% | 68 WPM, acc 87%
++ [2023-03-25 Sat] 61 WPM, acc 91% | 62 WPM, acc 90% | 59 WPM, acc 86% | 62 WPM, acc 89% | 77 WPM, acc 98% | 65 WPM, acc 92%
++ [2023-03-24 Fri] 55 WPM, acc 88% | 69 WPM, acc 93% | 53 WPM, acc 85% | 60 WPM, acc 85% | 62 WPM, acc 88%
++ [2023-03-22 Wed] 58 WPM, acc 90% | 64 WPM, acc 90% | 61 WPM, acc 89%
++ [2023-03-21 Tue] 55 WPM, acc 88% | 54 WPM, acc 88%
++ [2023-03-20 Mon] 61 WPM, acc 90% | 69 WPM, acc 94% | 67 WPM, acc 92%
++ [2023-03-19 Sun] 55 WPM, acc 89% | 60 WPM, acc 90%
++ [2023-03-18 Sat] 63 WPM, acc 92% | 61 WPM, acc 93% | 60 WPM, acc 91%
++ [2023-03-17 Fri] 57 WPM, acc 92% | 58 WPM, acc 98% | 60 WPM, acc 90%
++ [2023-03-16 Thu] 53 WPM, acc 86% | 60 WPM, acc 88% | 51 WPM, acc 87% | 63 WPM, acc 94%
++ [2023-03-15 Wed] 60 WPM, acc 89% | 61 WPM, acc 91% | 60 WPM, acc 89%
++ [2023-03-13 Mon] 50 WPM, acc 87% | 53 WPM, acc 86% | 52 WPM, acc 87%
++ [2023-03-12 Sun] 49 WPM, acc 87% | 65 WPM, acc 93% | 48 WPM, acc 84% | 47 WPM, acc 85% | 57 WPM, acc 87% | 46 WPM, acc 85%
++ [2023-03-11 Sat] 47 WPM, acc 85% | 48 WPM, acc 88% | 46 WPM, acc 83% | 53 WPM, acc 90% | 62 WPM, acc 92%
++ [2023-03-10 Fri] 49 WPM, acc 89% | 46 WPM, acc 87% | 56 WPM, acc 92%
++ [2023-03-09 Thu] 51 WPM, acc 92% | 50 WPM, acc 89% | 45 WPM, acc 86% | 52 WPM, acc 89% | 59 WPM, acc 92%
++ [2023-03-08 Wed] 46 WPM, acc 86% | 41 WPM, acc 83% | 50 WPM, acc 90% | 51 WPM, acc 90% | 43 WPM, acc 86%
++ [2023-03-07 Tue] 52 WPM, acc 90% | 50 WPM, acc 90% | 54 WPM, acc 90% | 55 WPM, acc 89% | 45 WPM, acc 84%
++ [2023-03-06 Mon] 52 WPM, acc 90% | 51 WPM, acc 90% | 44 WPM, acc 84% | 49 WPM, acc 89% | 55 WPM, acc 91%
++ [2023-03-05 Sun] 44 WPM, acc 85% | 49 WPM, acc 92% | 43 WPM, acc 83% | 54 WPM, acc 89% | 54 WPM, acc 90%
++ [2023-03-04 Sat] 38 WPM, acc 82% | 51 WPM, acc 92% | 51 WPM, acc 92% | 51 WPM, acc 89% | 46 WPM, acc 84%
++ [2023-03-03 Fri] 51 WPM, acc 90% | 38 WPM, acc 80% | 46 WPM, acc 85% | 41 WPM, acc 85%
++ [2023-03-02 Thu] 40 WPM, acc 83% | 43 WPM, acc 85% | 48 WPM, acc 90% | 42 WPM, acc 82% | 47 WPM, acc 86% | 46 WPM, acc 89%
++ [2023-03-01 Wed] 42 WPM, acc 83% | 40 WPM, acc 85% | 44 WPM, acc 87% | 46 WPM, acc 89% | 46 WPM, acc 87%
++ [2023-02-28 Tue] 41 WPM, acc 89% | 44 WPM, acc 85% | 44 WPM, acc 88% | 36 WPM, acc 80% | 46 WPM, acc 90%
++ [2023-02-27 Mon] 42 WPM, acc 89% | 43 WPM, acc 89% | 50 WPM, acc 90% | 51 WPM, acc 93% | 44 WPM, acc 87%
++ [2023-02-26 Sun] 39 WPM, acc 86% | 40 WPM, acc 85% | 35 WPM, acc 85% | 43 WPM, acc 89% | 41 WPM, acc 88% | 52 WPM, acc 94%
+Travel break.
++ [2023-02-17 Fri] 44 WPM, acc 88% | 44 WPM, acc 87% | 47 WPM, acc 89% | 50 WPM, acc 89%
++ [2023-02-15 Wed] 37 WPM, acc 85% | 44 WPM, acc 88% | 41 WPM, acc 87%
++ [2023-02-14 Tue] 39 WPM, acc 86% | 34 WPM, acc 82% | 38 WPM, acc 86% | 40 WPM, acc 89% | 41 WPM, acc 89%
++ [2023-02-13 Mon] 40 WPM, acc 86% | 38 WPM, acc 88% | 42 WPM, acc 86%
++ [2023-02-12 Sun] 31 WPM, acc 81% | 40 WPM, acc 88% | 41 WPM, acc 88% | 32 WPM, acc 80%
++ [2023-02-11 Sat] 46 WPM, acc 90% | 37 WPM, acc 85% | 41 WPM, acc 86% | 38 WPM, acc 84%
++ [2023-02-10 Fri] 36 WPM, acc 82% | 36 WPM, acc 86% | 37 WPM, acc 84% | 40 WPM, acc 87% | 37 WPM, acc 84%
++ [2023-02-09 Thu] 39 WPM, acc 87% | 36 WPM, acc 82% | 34 WPM, acc 80% | 42 WPM, acc 91%
++ [2023-02-08 Wed] 36 WPM, acc 87% | 34 WPM, acc 83% | 43 WPM, acc 90% | 38 WPM, acc 84%
++ [2023-02-07 Tue] 37 WPM, acc 86% | 36 WPM, acc 85% | 38 WPM, acc 87%
+My RSI flared up so taking some rest.
++ [2023-02-02 Thu] 42 WPM, acc 91% | 40 WPM, acc 88% | 41 WPM, acc 90%
++ [2023-02-01 Wed] 34 WPM, acc 85% | 33 WPM, acc 84% | 36 WPM, acc 84% | 33 WPM, acc 83% | 40 WPM, acc 89%
++ [2023-01-31 Tue] 33 WPM, acc 81% | 39 WPM, acc 90% | 36 WPM, acc 85%
++ [2023-01-30 Mon] 32 WPM, acc 86% | 34 WPM, acc 84% | 30 WPM, acc 82% | 31 WPM, acc 80%
++ [2023-01-29 Sun] 35 WPM, acc 85% | 28 WPM, acc 81% | 30 WPM, acc 84% | 32 WPM, acc 81% | 32 WPM, acc 84% | 34 WPM, acc 84%
++ [2023-01-28 Sat] 34 WPM, acc 87% | 33 WPM, acc 83% | 35 WPM, acc 86% | 32 WPM, acc 84%
++ [2023-01-27 Fri] 32 WPM, acc 87% | 35 WPM, acc 88% | 31 WPM, acc 87% | 29 WPM, acc 83%
++ [2023-01-26 Thu] 28 WPM, acc 82% | 30 WPM, acc 86% | 28 WPM, acc 81% | 32 WPM, acc 88%
++ [2023-01-25 Wed] 25 WPM, acc 83% | 27 WPM, acc 81% | 28 WPM, acc 81% | 28 WPM, acc 78% | 25 WPM, acc 80%
++ [2023-01-24 Tue] 26 WPM, acc 82% | 26 WPM, acc 80% | 24 WPM, acc 83% | 29 WPM, acc 88%
++ [2023-01-23 Mon] 26 WPM, acc 86% | 26 WPM, acc 83% | 26 WPM, acc 87%
++ [2023-01-22 Sun] 24 WPM, acc 85% | 22 WPM, acc 81% | 25 WPM, acc 88% | 24 WPM, acc 79% | 23 WPM, acc 82%
++ [2023-01-21 Sat] 25 WPM, acc 84% | 23 WPM, acc 77% | 25 WPM, acc 85% | 23 WPM, acc 87%
++ [2023-01-20 Fri] 20 WPM, acc 79% | 22 WPM, acc 80% | 21 WPM, acc 80% | 19 WPM, acc 80%
++ [2023-01-19 Thu] 21 WPM, acc 80% | 18 WPM, acc 80% | 21 WPM, acc 84%
++ [2023-01-18 Wed] 20 WPM, acc 85% | 21 WPM, acc 81% | 20 WPM, acc 82%
++ [2023-01-17 Tue] 16 WPM, acc 76% | 19 WPM, acc 80%
++ [2023-01-16 Mon] 14 WPM, acc 77% | 15 WPM, acc 77% | 16 WPM, acc 78%
++ [2023-01-15 Sun] 12 WPM, acc 67% |  15 WPM, acc 86% | 15 WPM, acc 79%
