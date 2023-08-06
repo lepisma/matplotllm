@@ -43,5 +43,10 @@ Plot a minimal scatter plot that shows WPM plotted against dates. Use accuracy v
 #+RESULTS: test-plot
 [[file:matplotllm.png]]
 
-Based on the output at every call, It definitely feels like I would need a
-conversational input method for plot description, not so much for data.
+Based on the output at every call during development, It definitely feels like I
+would need a conversational input method for plot description as I needed a lot
+of iterative feedback to be given to the LLM. Data description, on the other
+hand, worked well enough.
+
+Other features like saving the plot in high quality, allowing stylistic
+templates in system prompts, etc. would come in later versions.
