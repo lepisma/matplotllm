@@ -1,5 +1,7 @@
 #+TITLE: MatplotLLM
 
+[[https://github.com/lepisma/matplotllm/tags][file:https://img.shields.io/github/v/tag/lepisma/matplotllm.svg]]
+
 MatplotLLM is a natural language layer over matplotlib to visualize data. The
 main purpose is to accelerate building a certain /your way/ of visualizing data
 points without meddling with innards of a tool like matplotlib. As of now, this
