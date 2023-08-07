@@ -10,14 +10,19 @@ from something I wrote in a blog on AI co-programming [[https://lepisma.xyz/2023
 
 * Usage
 There are two descriptions that you need to provide, both in natural language.
-One that describes the data source. Second that describes how to plot. The
-second is where I believe a conversational interaction, not present right now,
-will be better than having a static text description.
+One that describes the data source. Second that describes how to plot. The first
+is a static text description, which you can change as needed between calls of
+course.
+
+For second, you can provide an /iterative description/ like in a conversation
+interface. You could start with a first pass description and then keep adding
+more specifications as feedback.
 
 You can use these in an org-babel source block with language name of ~matplotllm~
 as shown in below example. There is an org mode divider ~-----~ used to separate
 data description and plot description. In current design this distinction might
-look useless, but it might be helpful later on.
+look useless, but it might be helpful later on. In plot description, you add
+empty lines to give iterative feedback.
 
 You will have to set the value of ~matplotllm-openai-key~ to use this first.
 
@@ -26,7 +31,6 @@ plot in my blog post on [[https://lepisma.xyz/2023/07/22/learning-colemak-dh/ind
 
 #+NAME: test-plot
 #+begin_src matplotllm :results file :exports both
-
 The data file to read is named `log.txt`. Here is how it looks like:
 
 + [2023-07-20 Thu] 97 WPM, acc 98%
@@ -39,16 +43,22 @@ Each line is for a day has WPM and accuracy entries from multiple tries in a day
 
 -----
 
-Plot a minimal scatter plot that shows WPM plotted against dates. Use accuracy values as color of the scatter plot, darker (blue purple) is more accurate. Also clear up the axis and only show faint grid lines, and show dates where ticks have months written in them without crowding them too much. Annotate the first and last point with actual WPM value.
+Plot a minimal scatter plot that shows WPM plotted against dates. Use accuracy values as color of the scatter plot, darker (blue purple) is more accurate.
+
+Clear up the axis and only show faint grid lines, and show dates where ticks have months written in them without crowding them too much.
+
+Annotate the first and last point with actual WPM value.
 #+end_src
 
 #+RESULTS: test-plot
 [[file:matplotllm.png]]
 
-Based on the output at every call during development, It definitely feels like I
-would need a conversational input method for plot description as I needed a lot
-of iterative feedback to be given to the LLM. Data description, on the other
-hand, worked well enough.
+The iterative feedback could be provided in a better shell like way rather than
+in a babel source block later. Based on the output at every call during
+development plot description usually needs a lot of iterations usually. This is
+obvious as writing specifications of /anything/ brings out many hidden unshared
+models between the parties involved . Data description, on the other hand,
+worked well enough once specified.
 
 Other features like saving the plot in high quality, allowing stylistic
 templates in system prompts, etc. would come in later versions.

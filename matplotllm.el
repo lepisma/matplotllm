@@ -107,18 +107,26 @@ The output is raw LLM generation and will need parsing to strip
 non-code portions as needed."
   (matplotllm-openai-request matplotllm-system-message (format matplotllm-user-message-template data-description ask) callback))
 
-(defun matplotllm-parse-ob-body (body)
-  "Return data and plot description in a cons pair from ob `body'
-text. These two are separated by an org line break `-----`."
+(defun matplotllm-parse-babel-block (body)
+  "Return data and plot description in a list org-babel `body'
+text. These two are separated by an org line break `-----`.
+Further iterative plot descriptions are separated by one or more
+empty lines."
   (let ((sections (s-split "-----" body)))
     (unless (= (length sections) 2)
       (error "Ill-formed matplotllm description, please separate data and plot description with a `-----' separator."))
-    (cons (s-trim (car sections)) (s-trim (cadr sections)))))
+    (cons (s-trim (car sections)) (mapcar #'s-trim (s-split "\n\n" (cadr sections))))))
+
+(defun matplotllm-summarize-iterative-description (texts)
+  "Summarize a sequence of texts describing a specification given
+in iterative conversational way. For now this is just
+concatenation but will use another LLM call."
+  (s-join "\n\n" texts))
 
 (defun org-babel-execute:matplotllm (body params)
   "Execute matplotllm description and generate plots."
-  (let ((desc (matplotllm-parse-ob-body body)))
-    (matplotllm-request (car desc) (cdr desc)
+  (let ((desc (matplotllm-parse-babel-block body)))
+    (matplotllm-request (car desc) (matplotllm-summarize-iterative-description (cdr desc))
                         (lambda (response)
                           (matplotllm-run (matplotllm-parse-code response))
                           (org-redisplay-inline-images))))
