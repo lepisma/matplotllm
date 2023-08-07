@@ -102,10 +102,10 @@ and runs `callback' on the first LLM response."
                   (funcall callback llm-response))))))
 
 (defun matplotllm-generate-code (data-description ask callback)
-  "Send request to an LLM with requirements and get output back.
-The output is raw LLM generation and will need parsing to strip
-non-code portions as needed."
-  (matplotllm-openai-request matplotllm-system-message (format matplotllm-user-message-template data-description ask) callback))
+  "Send request to an LLM with requirements and get output code
+back after stripping non code portions."
+  (matplotllm-openai-request matplotllm-system-message (format matplotllm-user-message-template data-description ask)
+                             (lambda (response) (funcall callback (matplotllm-parse-code response)))))
 
 (defun matplotllm-parse-babel-block (body)
   "Return data and plot description in a list org-babel `body'
@@ -128,7 +128,7 @@ concatenation but will use another LLM call."
   (let ((desc (matplotllm-parse-babel-block body)))
     (matplotllm-generate-code (car desc) (matplotllm-summarize-iterative-description (cdr desc))
                               (lambda (response)
-                                (matplotllm-run (matplotllm-parse-code response))
+                                (matplotllm-run response)
                                 (org-redisplay-inline-images))))
   matplotllm-image-filename)
 
