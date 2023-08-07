@@ -34,11 +34,16 @@
 (require 'request)
 (require 's)
 
+(defgroup matplotllm nil
+  "Group for holding matplotllm customizations.")
+
 (defcustom matplotllm-image-filename "matplotllm.png"
-  "Filename where the plotting code should put the image in.")
+  "Filename where the plotting code should put the image in."
+  :group 'matplotllm)
 
 (defcustom matplotllm-openai-key nil
-  "OpenAI key for calling LLMs.")
+  "OpenAI key for calling LLMs."
+  :group 'matplotllm)
 
 (defcustom matplotllm-system-message
   "You have to produce complete code for plotting a graph using
@@ -51,13 +56,15 @@ You will be given the description of the data source that you
 have to use. Note that if the description talks about a filename
 just hard code reading from file in the code and don't read
 anything from the command line."
-  "System prompt message for use in OpenAI requests.")
+  "System prompt message for use in OpenAI requests."
+  :group 'matplotllm)
 
 (defcustom matplotllm-user-message-template
   "Data Description: %s
 
 Ask: %s"
-  "Prompt template to be used while asking for code.")
+  "Prompt template to be used while asking for code."
+  :group 'matplotllm)
 
 (defvar matplotllm-file-name "matplotllm.py"
   "Name of the file to dump the code in.")
