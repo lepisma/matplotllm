@@ -80,6 +80,7 @@ is complete code to plot the desired graphics."
   (with-temp-buffer
     (insert code)
     (write-file matplotllm-file-name))
+  (message "[matplotllm] Executing plotting code")
   (call-process "python" nil "*matplotllm*" nil matplotllm-file-name))
 
 (defun matplotllm-openai-request (system-message user-message callback)
@@ -95,7 +96,7 @@ and runs `callback' on the first LLM response."
     :parser 'json-read
     :error (cl-function
             (lambda (&rest args &key error-thrown &allow-other-keys)
-              (message "Got error: %S" error-thrown)))
+              (message "[matplotllm] Got error while sending request: %S" error-thrown)))
     :success (cl-function
               (lambda (&key data &allow-other-keys)
                 (let ((llm-response (alist-get 'content (alist-get 'message (aref (alist-get 'choices data) 0)))))
@@ -104,6 +105,7 @@ and runs `callback' on the first LLM response."
 (defun matplotllm-generate-code (data-description ask callback)
   "Send request to an LLM with requirements and get output code
 back after stripping non code portions."
+  (message "[matplotllm] Sending plotting code generation request")
   (matplotllm-openai-request matplotllm-system-message (format matplotllm-user-message-template data-description ask)
                              (lambda (response) (funcall callback (matplotllm-parse-code response)))))
 
@@ -114,7 +116,7 @@ Further iterative plot descriptions are separated by one or more
 empty lines."
   (let ((sections (s-split "-----" body)))
     (unless (= (length sections) 2)
-      (error "Ill-formed matplotllm description, please separate data and plot description with a `-----' separator."))
+      (error "[matplotllm] Ill-formed description, please separate data and plot description with a `-----' separator."))
     (cons (s-trim (car sections)) (mapcar #'s-trim (s-split "\n\n" (cadr sections))))))
 
 (defun matplotllm-summarize-iterative-description (texts)
