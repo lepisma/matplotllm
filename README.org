@@ -55,10 +55,10 @@ Annotate the first and last point with actual WPM value.
 
 The iterative feedback could be provided in a better shell like way rather than
 in a babel source block later. Based on the output at every call during
-development plot description usually needs a lot of iterations usually. This is
-obvious as writing specifications of /anything/ brings out many hidden unshared
-models between the parties involved . Data description, on the other hand,
-worked well enough once specified.
+development plot description usually needs a lot of iterations. This is obvious
+as writing specifications of /anything/ brings out many hidden unshared models
+between the parties involved . Data description, on the other hand, worked well
+enough once specified.
 
 Other features like saving the plot in high quality, allowing stylistic
 templates in system prompts, etc. would come in later versions.
