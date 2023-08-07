@@ -24,7 +24,8 @@ data description and plot description. In current design this distinction might
 look useless, but it might be helpful later on. In plot description, you add
 empty lines to give iterative feedback.
 
-You will have to set the value of ~matplotllm-openai-key~ to use this first.
+You will have to set the value of ~matplotllm-openai-key~ to use this first. We
+call ~GPT4~ as the backing LLM right now.
 
 The example below is trying to reproduce, I haven't done justice to it yet, the
 plot in my blog post on [[https://lepisma.xyz/2023/07/22/learning-colemak-dh/index.html][Learning Colemak-DH]].
@@ -57,8 +58,9 @@ Few development notes:
 
 1. The iterative feedback could be provided in a better shell like way rather
    than in a babel source block. Also the performance here could be improved by
-   actually using context either in the request or via summarizing. This is not
-   done yet.
+   using code context either in the request or via summarizing the feedback.
+   This is not done yet, we just send across all the feedback concatenated in
+   one large text.
 2. Many times the code fails. This happens silently right now and needs better
    visibility. Though I might want to keep code out of sight and prefer things
    like heuristic retries over actually letting user debug. My target
