@@ -101,7 +101,7 @@ and runs `callback' on the first LLM response."
                 (let ((llm-response (alist-get 'content (alist-get 'message (aref (alist-get 'choices data) 0)))))
                   (funcall callback llm-response))))))
 
-(defun matplotllm-request (data-description ask callback)
+(defun matplotllm-generate-code (data-description ask callback)
   "Send request to an LLM with requirements and get output back.
 The output is raw LLM generation and will need parsing to strip
 non-code portions as needed."
@@ -126,10 +126,10 @@ concatenation but will use another LLM call."
 (defun org-babel-execute:matplotllm (body params)
   "Execute matplotllm description and generate plots."
   (let ((desc (matplotllm-parse-babel-block body)))
-    (matplotllm-request (car desc) (matplotllm-summarize-iterative-description (cdr desc))
-                        (lambda (response)
-                          (matplotllm-run (matplotllm-parse-code response))
-                          (org-redisplay-inline-images))))
+    (matplotllm-generate-code (car desc) (matplotllm-summarize-iterative-description (cdr desc))
+                              (lambda (response)
+                                (matplotllm-run (matplotllm-parse-code response))
+                                (org-redisplay-inline-images))))
   matplotllm-image-filename)
 
 (provide 'matplotllm)
