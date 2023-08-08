@@ -69,5 +69,5 @@ Few development notes:
 4. Plot description usually needs a lot of iterations to get to what you want
    and also just to keep redraws consistent. This is obvious as writing
    specifications of /anything/ brings out many hidden unshared models between the
-   parties involved. Data description, on the other hand, worked well once
+   parties involved. Data description, on the other hand, works well once
    specified.
