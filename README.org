@@ -28,8 +28,8 @@ the LLM, provides feedback, and asks for new code.
 You will have to set the value of ~matplotllm-openai-key~ to use this first. We
 call ~GPT4~ as the backing LLM right now.
 
-The example below is trying to reproduce, I haven't done justice to it yet, the
-plot in my blog post on [[https://lepisma.xyz/2023/07/22/learning-colemak-dh/index.html][Learning Colemak-DH]].
+The example below is trying to reproduce---I haven't done justice to it
+yet---the plot in my blog post on [[https://lepisma.xyz/2023/07/22/learning-colemak-dh/index.html][Learning Colemak-DH]].
 
 #+NAME: test-plot
 #+begin_src matplotllm :results file :exports both
