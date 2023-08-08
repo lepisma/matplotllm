@@ -2,7 +2,7 @@
 
 [[https://github.com/lepisma/matplotllm/tags][file:https://img.shields.io/github/v/tag/lepisma/matplotllm.svg]]
 
-MatplotLLM is a natural language layer over matplotlib to visualize data. The
+MatplotLLM is a natural language layer over [[https://matplotlib.org/][Matplotlib]] to visualize data. The
 main purpose is to accelerate building a certain /your way/ of visualizing data
 points without meddling with innards of a tool like matplotlib. As of now, this
 is a system to be used from within Emacs/Org system. The motivation is coming
@@ -22,7 +22,8 @@ You can use these in an org-babel source block with language name of ~matplotllm
 as shown in below example. There is an org mode divider ~-----~ used to separate
 data description and plot description. In current design this distinction might
 look useless, but it might be helpful later on. In plot description, you add
-empty lines to give iterative feedback.
+empty lines to give iterative feedback. Every redraw shows the current code to
+the LLM, provides feedback, and asks for new code.
 
 You will have to set the value of ~matplotllm-openai-key~ to use this first. We
 call ~GPT4~ as the backing LLM right now.
@@ -57,14 +58,12 @@ Annotate the first and last point with actual WPM value.
 Few development notes:
 
 1. The iterative feedback could be provided in a better shell like way rather
-   than in a babel source block. Also the performance here could be improved by
-   using code context either in the request or via summarizing the feedback.
-   This is not done yet, we just send across all the feedback concatenated in
-   one large text.
-2. Many times the code fails. This happens silently right now and needs better
-   visibility. Though I might want to keep code out of sight and prefer things
-   like heuristic retries over actually letting user debug. My target
-   user---though not in this Emacs version---is /not a programmer/.
+   than in a babel source block.
+2. Many times the generated code fails. This happens silently right now and
+   needs better visibility. Though I might want to keep code out of sight and
+   prefer things like heuristic retries over actually letting user debug. My
+   target user---not in the Emacs version---is someone who doesn't want to use
+   matplotlib manually.
 3. Features like saving the plot in high quality, allowing stylistic templates
    in system prompts, etc. would come in later versions.
 4. Plot description usually needs a lot of iterations to get to what you want
