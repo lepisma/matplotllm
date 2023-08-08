@@ -90,20 +90,22 @@ and runs `callback' on the first LLM response
 `system-message' is a string. `messages' is a list of pairs with
 role name and content like this (assistant .\"hi how are you
 today\")."
-  (request "https://api.openai.com/v1/chat/completions"
-    :type "POST"
-    :data (json-encode `(("model" . "gpt-4")
-                         ("messages" . ,(cons `(("role" . "system") ("content" . ,system-message)) (mapcar (lambda (it) `(("role" . ,(car it)) ("content" . ,(cdr it)))) messages)))))
-    :headers `(("Content-Type" . "application/json")
-               ("Authorization" . ,(format "Bearer %s" matplotllm-openai-key)))
-    :parser 'json-read
-    :error (cl-function
-            (lambda (&rest args &key error-thrown &allow-other-keys)
-              (message "[matplotllm] Got error while sending request: %S" error-thrown)))
-    :success (cl-function
-              (lambda (&key data &allow-other-keys)
-                (let ((llm-response (alist-get 'content (alist-get 'message (aref (alist-get 'choices data) 0)))))
-                  (funcall callback llm-response))))))
+  (let ((start-time (current-time)))
+    (request "https://api.openai.com/v1/chat/completions"
+      :type "POST"
+      :data (json-encode `(("model" . "gpt-4")
+                           ("messages" . ,(cons `(("role" . "system") ("content" . ,system-message)) (mapcar (lambda (it) `(("role" . ,(car it)) ("content" . ,(cdr it)))) messages)))))
+      :headers `(("Content-Type" . "application/json")
+                 ("Authorization" . ,(format "Bearer %s" matplotllm-openai-key)))
+      :parser 'json-read
+      :error (cl-function
+              (lambda (&rest args &key error-thrown &allow-other-keys)
+                (message "[matplotllm] Got error while sending request: %S" error-thrown)))
+      :success (cl-function
+                (lambda (&key data &allow-other-keys)
+                  (let ((llm-response (alist-get 'content (alist-get 'message (aref (alist-get 'choices data) 0)))))
+                    (funcall callback llm-response))))
+      :complete (lambda (&rest _) (message "[matplotllm] Total LLM request time: %.02f seconds" (float-time (time-since start-time)))))))
 
 (defun matplotllm-generate-code (messages callback)
   "Send request to an LLM with requirements and get output code
