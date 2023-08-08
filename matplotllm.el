@@ -3,7 +3,7 @@
 ;; Copyright (c) 2023 Abhinav Tushar
 
 ;; Author: Abhinav Tushar <abhinav@lepisma.xyz>
-;; Version: 0.1.0
+;; Version: 0.2.0
 ;; Package-Requires: ((emacs "28") (org "9.6.6") (request "0.3.2") (s "1.13.0"))
 ;; Keywords: 
 ;; URL: https://github.com/lepisma/matplotllm
