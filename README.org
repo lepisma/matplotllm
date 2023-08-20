@@ -8,6 +8,8 @@ points without meddling with innards of a tool like matplotlib. As of now, this
 is a system to be used from within Emacs/Org system. The motivation is coming
 from something I wrote in a blog on AI co-programming [[https://lepisma.xyz/2023/06/29/mu4e-snooze/index.html][here]].
 
+You might be interested in reading [[https://lepisma.xyz/2023/08/20/matplotllm:-an-llm-assisted-data-visualization-framework/index.html][my blog post]] on MatplotLLM too.
+
 * Usage
 There are two descriptions that you need to provide, both in natural language.
 One that describes the data source. Second that describes how to plot. The first
