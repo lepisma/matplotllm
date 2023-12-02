@@ -73,7 +73,7 @@ Few development notes:
    specifications of /anything/ brings out many hidden unshared models between the
    parties involved. Data description, on the other hand, works well once
    specified.
-#+TITLE: License
+* License
 
 LLM Assisted data visualization system 
 
